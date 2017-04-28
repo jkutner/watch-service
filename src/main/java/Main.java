@@ -26,7 +26,7 @@ public class Main extends HttpServlet {
 
   public static void main(String[] args) throws Exception{
     final WatchService watchService = FileSystems.getDefault().newWatchService();
-    Path path = Paths.get(args.length > 0 ? args[0] : "work/");
+    Path path = Paths.get(args.length > 0 ? args[0] : "/etc/heroku/space-topology.json");
     path.register(watchService,ENTRY_CREATE,ENTRY_DELETE,ENTRY_MODIFY);
 
     Runtime.getRuntime().addShutdownHook(new Thread() {
